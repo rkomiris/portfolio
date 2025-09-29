@@ -9,9 +9,9 @@ const resumeData = {
     name: 'Rohan Komirishetty',
     role: 'Lead Software Engineer',
     location: 'Ashburn, VA',
-    email: 'Rohan.komirishetty.dev@gmail.com',
+    email: 'rohan.komirishetty.dev@gmail.com',
     phone: '+1 (703) 297‑2441',
-    linkedin: 'https://www.linkedin.com/in/placeholder',
+    linkedin: 'http://www.linkedin.com/in/rohan-komirishetty-0087b5318',
     // Provide a link to your résumé PDF relative to the public folder.
     resumeLink: '/resume.pdf'
   },
