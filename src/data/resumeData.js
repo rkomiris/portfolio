@@ -13,10 +13,14 @@ const resumeData = {
     phone: '+1 (703) 297‑2441',
     linkedin: 'http://www.linkedin.com/in/rohan-komirishetty-0087b5318',
     // Provide a link to your résumé PDF relative to the public folder.
-    resumeLink: '/resume.pdf'
+    resumeLink: process.env.PUBLIC_URL + '/resume.pdf'
   },
   summary:
-    'Software Engineer with around 7 years of experience in designing, developing and deploying scalable enterprise applications across web and cloud environments. Proficient in Java, JavaScript, TypeScript and SQL, with strong expertise in Spring Boot, Spring MVC, Spring Security, Hibernate, JPA and Microservices for back‑end development. Hands‑on experience with MySQL, PostgreSQL, etc., delivering optimized data‑driven solutions. Adept in AWS, Azure and GCP for cloud‑native development, deployment and scaling. Experienced in Docker, Kubernetes and Jenkins to streamline CI/CD pipelines and DevOps practices.',
+    'Senior Backend Engineer with 7 years of experience designing and scaling cloud-native SaaS platforms. Expert in Java/Python\n' +
+      'microservices and AWS serverless architectures (Lambda, ECS, SQS). Proven success in modernizing monoliths, delivering\n' +
+      'FinOps innovations in cost visibility and optimization and enhancing CSPM/threat-detection engines. Recognized for driving 10×\n' +
+      'throughput, 15–30% cost savings, 99.99% uptime, and 40% faster compliance while mentoring teams and advancing DevSecOps\n' +
+      'practices',
   skills: {
     languages: ['Java', 'JavaScript', 'TypeScript', 'SQL'],
     frameworks: [
