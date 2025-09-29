@@ -48,7 +48,7 @@ const resumeData = {
       date: 'May 2021'
     },
     {
-      degree: 'BE in Computer Science',
+      degree: 'BTech in Computer Science',
       institution: 'Vidya Jyothi Institute of Technology',
       location: 'Hyderabad, India',
       date: 'May 2019'
@@ -58,22 +58,25 @@ const resumeData = {
     {
       company: 'CloudNova Technologies',
       location: 'Reston, VA',
-      position: 'Lead Software Engineer',
+      position: 'Lead Software Engineer - Backend',
       startDate: 'Jul 2021',
       endDate: 'Present',
       accomplishments: [
-        'Spearheaded migration of a high‑throughput Java monolith to AWS Lambda and SQS, optimizing concurrency and cold‑start latency; achieved a 10× throughput increase and 30% cost savings via event‑driven autoscaling.',
-        'Planned and deployed a cloud security posture management platform across multi‑region AWS accounts, enhancing compliance visibility and reducing security misconfigurations by 40% through real‑time alerting with Elasticsearch and automated triggers.',
-        'Designed and implemented a compliance automation framework in Python and Go, introducing asynchronous workflows and persistent caching to cut assessment cycle times by 40%.',
-        'Led development of a proactive risk evaluation service integrating containerized Open Policy Agent (OPA) with CI/CD pipelines, enabling policy validation of cloud templates before deployment and lowering release rollbacks by 25%.',
-        'Architected a real‑time anomaly detection platform with Elasticsearch ML, graph queries and event‑driven pipelines, boosting threat detection precision by 35% while reducing false positives.',
-        'Built a self‑service data governance portal using PostgreSQL, MongoDB TTL and AWS S3, automating retention rules and trimming unnecessary data growth by 30%.',
-        'Directed a cross‑functional team to optimize AWS storage and compute usage, achieving an estimated 20% cost reduction across staging and production environments.',
-        'Mentored junior engineers on best practices in Python concurrency, distributed systems and secure coding, improving code quality and reducing defect density in production releases.',
-        'Introduced test automation frameworks (JUnit, Cucumber, Selenium) into CI/CD pipelines, cutting post‑deployment bugs by 30% and accelerating regression testing cycles.',
-        'Transitioned legacy monolithic systems to ECS (Fargate) with Docker, implementing ECS service autoscaling to support a 5× increase in daily API traffic.',
-        'Architected an AI‑driven compliance assistant by integrating large language models with AWS APIs, Elasticsearch and custom licensing workflows, enabling self‑service policy validation and accelerating customer onboarding by 40%.',
-        'Authored API documentation and architecture diagrams, accelerating developer onboarding by 20% and reducing incident resolution times.'
+        'Modernized Java monolith into Spring Boot 3.3 microservices (AWS Lambda, SQS, ECS/Fargate), boosting throughput 10× and cutting costs by ~30% via event-driven autoscaling and rightsizing.',
+        'Architected CloudCatcher’s CSPM backend—an agentless engine for automated misconfiguration detection and severity-scored remediation—raising asset visibility ≈40%, reducing incidents ≈30%, and ensuring audit-ready compliance.',
+        'Engineered high-throughput ingestion/ETL pipelines (Python/Java, PostgreSQL/MongoDB, Elasticsearch) processing 1M+ records/day; optimized indexing and partitioning to cut query times by 50% and compliance assessments by 40%.',
+        'Designed real-time anomaly/threat detection using Elasticsearch ML and graph algorithms, improving detection precision by ≈35% and reducing breach-response times by ≈40% across enterprise workloads.',
+        'Instituted shift-left IaC governance by embedding Open Policy Agent (OPA) into CI/CD, scanning 20+ template types across different teams; enforced pre-deployment compliance and cut misconfiguration rollbacks by 25%.',
+        'Built FinOps modules to unify AWS cost visibility, enable role-based reporting, and deliver intelligent cost allocation with Kubernetes/EKS cost breakdowns.',
+        'Automated rightsizing, idle resource cleanup, and S3 tiering to generate reserved-instance/savings-plan recommendations, driving 15–20% cost savings for clients.',
+        'Built a serverless ticket resolution/escalation system (MongoDB, S3, Gmail API, AWS Lambda) that streamlined client workflows and cut average support resolution times by 50% across thousands of cases.',
+        'Integrated AWS Marketplace licensing and onboarding into CloudCatcher, enabling SaaS distribution with subscription billing and usage reporting—shortening partner onboarding by 40% and expanding adoption to 50+ enterprise customers.',
+        'Developed an AI-powered compliance assistant and WAFR chatbot using LLMs with AWS APIs, providing self-service policy validation and accelerating onboarding by ≈40% for 200+ enterprise clients.',
+        'Upgraded APIs to Java 17 with JWT/OAuth2, AWS Cognito MFA, and Secrets Manager, strengthening security posture.',
+        'Containerized services with Docker/ECR and orchestrated on ECS Fargate, supporting 5× transaction growth, reducing tech debt, and achieving 99.99% API uptime in microservices architecture.',
+        'Implemented FinOps strategies—including ARM instance migration, lifecycle policies, log retention, and reserved instances—reducing AWS costs by 15–20%.',
+        'Mentored engineers to adopt concurrency and secure coding practices, raising team delivery standards.',
+        'Led DevOps initiatives by building CI/CD pipelines (Bitbucket, AWS CodePipeline) with SAST/DAST and canary/blue-green deployments, achieving 99.95% deployment success and ≈25% faster releases.'
       ]
     },
     {
@@ -83,14 +86,11 @@ const resumeData = {
       startDate: 'Jan 2018',
       endDate: 'Jul 2019',
       accomplishments: [
-        'Developed and deployed scalable enterprise applications using Java, Spring Boot, Microservices and Hibernate, improving system performance by 30%.',
-        'Designed and optimized RESTful APIs along with Node.js and Express.js services, supporting real‑time data exchange across distributed systems.',
-        'Engineered database solutions with MySQL, PostgreSQL, Oracle and MongoDB, reducing query response times by 40% through indexing and schema optimization.',
-        'Implemented CI/CD pipelines with Jenkins, Docker, Kubernetes, Git and Maven, accelerating release cycles by 35% and improving deployment reliability.',
-        'Collaborated in Agile/Scrum teams, contributing to sprint planning, backlog grooming and delivering high‑quality code within tight deadlines.',
-        'Integrated back‑end systems with third‑party APIs and internal services via RESTful endpoints, SOAP web services and JSON/XML payloads, ensuring secure and reliable data exchange.',
-        'Implemented security best practices in Java applications, including JWT authentication, OAuth 2.0 and role‑based access control, ensuring compliance with internal policies.',
-        'Conducted unit, integration and load testing with JUnit, Mockito, Selenium, Postman and JMeter, reducing post‑release defects by 28%.'
+        'Developed Java microservices with Spring Boot & Hibernate, boosting system performance by 30% across 10+ enterprise modules.',
+        'Designed RESTful APIs and Node.js/Express services enabling real-time data exchange across distributed systems and 3+ databases, supporting thousands of daily transactions.',
+        'Implemented JWT/OAuth2 security, database indexing, and load testing (JUnit, Mockito, JMeter), reducing production defects by 28% and improving release quality.',
+        'Engineered database solutions with MySQL, PostgreSQL, Oracle, and MongoDB, reducing query response times by 40% through indexing and schema optimization.',
+        'Built CI/CD pipelines (Jenkins, Docker, Kubernetes), accelerating release cycles by 35% and improving deployment reliability by cutting rollback incidents by 40%.'
       ]
     }
   ],
