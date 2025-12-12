@@ -1,29 +1,65 @@
 .about-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
 }
 
-.about-container h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #2d3748;
+.about-content {
+  max-width: 900px;
+  width: 100%;
 }
 
 .about-description {
-  margin-bottom: 1.5rem;
-  color: #4a5568;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  text-align: center;
+  line-height: 1.8;
 }
 
-.education-list {
-  list-style: none;
-  padding-left: 0;
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-.education-item {
-  margin-bottom: 0.75rem;
-  color: #2d3748;
+.education-card {
+  background: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.edu-degree {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.edu-institution {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.edu-location {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.edu-date {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary-color);
+  border-radius: 99px;
 }

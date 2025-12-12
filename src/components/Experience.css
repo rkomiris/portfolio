@@ -1,22 +1,59 @@
 .experience-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1rem;
 }
 
-.experience-container h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #2d3748;
+.timeline {
+  position: relative;
+  padding: 2rem 0;
 }
 
-.job-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+/* Vertical Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px;
+  /* Aligns with marker center */
+  height: 100%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 3rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--surface-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  z-index: 1;
+}
+
+.timeline-content {
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(5px);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
 .job-header {
@@ -24,30 +61,65 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .job-header h3 {
   font-size: 1.25rem;
-  color: #2c5282;
+  color: var(--text-color);
+  margin: 0;
 }
 
-.job-header span {
+.job-date {
   font-size: 0.9rem;
-  color: #718096;
+  color: var(--accent-color);
+  font-family: monospace;
 }
 
 .job-company {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: #4a5568;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .job-list {
-  list-style-type: disc;
-  margin-left: 1.25rem;
-  color: #4a5568;
+  list-style-type: none;
+  padding: 0;
 }
 
 .job-list li {
-  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.job-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+  }
+
+  .timeline-marker {
+    left: 0;
+  }
+
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
 }

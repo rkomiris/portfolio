@@ -1,49 +1,107 @@
-/* Styles for the navigation bar */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 80px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.5rem;
-  z-index: 1000;
+  z-index: 999;
+  transition: all 0.3s ease;
+  background: transparent;
 }
 
-.navbar-brand {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a202c;
+.navbar.scrolled {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  height: 70px;
 }
 
-.navbar-links {
-  list-style: none;
+.navbar-container {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
 }
 
-.navbar-links li a {
+.navbar-logo {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 700;
   text-decoration: none;
-  color: #4a5568;
+  letter-spacing: -0.5px;
+}
+
+.navbar-logo span {
+  color: var(--primary-color);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  color: var(--text-secondary);
   font-weight: 500;
-  padding: 0.5rem;
   transition: color 0.2s ease;
+  font-size: 0.95rem;
 }
 
-.navbar-links li a:hover {
-  color: #2b6cb0;
+.nav-links:hover {
+  color: var(--primary-color);
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
+.menu-icon {
+  display: none;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
   }
-  .navbar-links {
-    width: 100%;
+
+  .nav-menu {
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    /* aligns with scrolled height */
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem 0;
+    height: auto;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    z-index: 998;
+  }
+
+  .navbar.scrolled .nav-menu {
+    top: 70px;
+  }
+
+  .nav-item {
+    margin: 1.5rem 0;
+  }
+
+  .nav-links {
+    font-size: 1.2rem;
   }
 }

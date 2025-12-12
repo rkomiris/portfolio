@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import resumeData from '../data/resumeData';
 import emailjs from 'emailjs-com';
+import { motion } from 'framer-motion';
+import { FaPaperPlane, FaSpinner, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 import './Contact.css';
 
 function Contact() {
@@ -19,7 +21,6 @@ function Contact() {
             return false;
         }
 
-        // Updated regex
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         if (!emailRegex.test(formData.email)) {
             setStatus({ loading: false, message: 'Please enter a valid email address.', error: true });
@@ -36,78 +37,104 @@ function Contact() {
         setStatus({ loading: true, message: '', error: false });
 
         emailjs.send(
-            'service_cdmztpj',   // 🔧 replace with your EmailJS service ID
-            'template_9cuedcq',  // 🔧 replace with your EmailJS template ID
+            'service_cdmztpj',
+            'template_9cuedcq',
             formData,
-            'UJpcUWB5qBcZ7stOK'    // 🔧 replace with your EmailJS public key
+            'UJpcUWB5qBcZ7stOK'
         )
             .then(() => {
-                setStatus({ loading: false, message: '✅ Message sent successfully!', error: false });
+                setStatus({ loading: false, message: 'Message sent successfully!', error: false });
                 setFormData({ name: '', email: '', message: '' });
+                setTimeout(() => setStatus({ loading: false, message: '', error: false }), 5000);
             })
             .catch(() => {
-                setStatus({ loading: false, message: '❌ Something went wrong. Please try again later.', error: true });
+                setStatus({ loading: false, message: 'Something went wrong. Please try again later.', error: true });
             });
     };
 
     return (
         <div className="contact-container">
-            <h2>Contact</h2>
-            <div className="contact-info">
-                <p><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></p>
-                <p><strong>Phone:</strong> {phone}</p>
-                <p><strong>LinkedIn:</strong> <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
-            </div>
+            <motion.div
+                className="contact-content"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+            >
+                <h2>Get In Touch</h2>
+                <div className="contact-wrapper">
+                    <div className="contact-info">
+                        <p className="contact-intro">
+                            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        </p>
+                        <div className="contact-links">
+                            <a href={`mailto:${email}`} className="contact-link">
+                                <FaEnvelope /> {email}
+                            </a>
+                            <div className="contact-link">
+                                <FaPhone /> {phone}
+                            </div>
+                            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="contact-link">
+                                <FaLinkedin /> LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
 
-            <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="message">Message</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows="4"
-                        required
-                    ></textarea>
-                </div>
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder="Your Name"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="your.email@example.com"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                rows="5"
+                                placeholder="Hello, I'd like to talk about..."
+                            ></textarea>
+                        </div>
 
-                <button
-                    type="submit"
-                    className="btn-submit"
-                    disabled={status.loading}
-                >
-                    {status.loading ? 'Sending...' : 'Send Message'}
-                </button>
-            </form>
+                        <button
+                            type="submit"
+                            className="btn btn-submit"
+                            disabled={status.loading}
+                        >
+                            {status.loading ? <FaSpinner className="spinner" /> : <><FaPaperPlane /> Send Message</>}
+                        </button>
 
-            {status.message && (
-                <p className={`status-message ${status.error ? 'error' : 'success'}`}>
-                    {status.message}
-                </p>
-            )}
+                        {status.message && (
+                            <motion.div
+                                className={`status-message ${status.error ? 'error' : 'success'}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                            >
+                                {status.message}
+                            </motion.div>
+                        )}
+                    </form>
+                </div>
+            </motion.div>
         </div>
     );
 }
