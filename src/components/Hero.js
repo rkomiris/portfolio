@@ -4,47 +4,48 @@ import profilePic from '../assets/profile.png';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
-/**
- * Modern Hero Section with Animations
- */
 function Hero() {
   const { name, role, resumeLink } = resumeData.personal;
+  const { positioning, focus, summary } = resumeData.profile;
 
   return (
     <div className="hero-container">
       <div className="hero-content">
         <motion.div
           className="hero-text"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="hero-greeting">Hi, I'm</span>
+          <span className="hero-eyebrow">Senior software engineer</span>
           <h1 className="hero-name">{name}</h1>
-          <h2 className="hero-role">{role}</h2>
-          <p className="hero-summary">{resumeData.summary}</p>
-          <motion.div
-            className="hero-actions"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a href={resumeLink} className="btn btn-primary" download>
-              Download Résumé
+          <p className="hero-role">{role}</p>
+          <p className="hero-positioning">{positioning}</p>
+          <p className="hero-summary">{summary}</p>
+
+          <div className="hero-focus">
+            {focus.map((item) => (
+              <span key={item} className="hero-tag">{item}</span>
+            ))}
+          </div>
+
+          <div className="hero-actions">
+            <a href="#case-studies" className="btn btn-primary">View Case Studies</a>
+            <a href="#contact" className="btn btn-outline">Get in Touch</a>
+            <a href={resumeLink} className="btn btn-ghost" download>
+              Download Resume
             </a>
-            <a href="#contact" className="btn btn-outline">
-              Get in Touch
-            </a>
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.div
           className="hero-image-wrapper"
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
-          <div className="blob"></div>
-          <img src={profilePic} alt="Profile" className="hero-avatar" />
+          <div className="hero-frame"></div>
+          <img src={profilePic} alt="Portrait of Rohan" className="hero-avatar" />
         </motion.div>
       </div>
     </div>

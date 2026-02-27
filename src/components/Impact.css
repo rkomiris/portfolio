@@ -1,0 +1,34 @@
+.impact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.impact-header p {
+  max-width: 620px;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.impact-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.impact-metric {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.impact-label {
+  color: var(--muted);
+}

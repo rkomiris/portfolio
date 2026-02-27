@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import resumeData from '../data/resumeData';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './NavBar.css';
 
-/**
- * Modern Navigation Bar with Glassmorphism and Mobile Responsive Menu
- */
 function NavBar() {
   const { name } = resumeData.personal;
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 24);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -25,9 +20,10 @@ function NavBar() {
 
   const navLinks = [
     { title: 'Home', href: '#home' },
-    { title: 'About', href: '#about' },
-    { title: 'Skills', href: '#skills' },
-    { title: 'Experience', href: '#experience' },
+    { title: 'Impact', href: '#impact' },
+    { title: 'Case Studies', href: '#case-studies' },
+    { title: 'How I Work', href: '#about' },
+    { title: 'Capabilities', href: '#capabilities' },
     { title: 'Contact', href: '#contact' }
   ];
 
@@ -38,13 +34,18 @@ function NavBar() {
           {name.split(' ')[0]}<span>.</span>
         </a>
 
-        <div className="menu-icon" onClick={toggleMenu}>
+        <button
+          className="menu-icon"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+        >
           {isOpen ? <FaTimes /> : <FaBars />}
-        </div>
+        </button>
 
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
-          {navLinks.map((link, index) => (
-            <li key={index} className="nav-item">
+          {navLinks.map((link) => (
+            <li key={link.title} className="nav-item">
               <a href={link.href} className="nav-links" onClick={() => setIsOpen(false)}>
                 {link.title}
               </a>

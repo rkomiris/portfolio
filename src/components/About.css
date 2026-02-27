@@ -1,65 +1,62 @@
 .about-container {
-  display: flex;
-  justify-content: center;
-}
-
-.about-content {
-  max-width: 900px;
-  width: 100%;
-}
-
-.about-description {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
-  text-align: center;
-  line-height: 1.8;
-}
-
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.education-card {
   background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-content h2 {
+  margin-bottom: 1rem;
+}
+
+.about-intro {
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.principle-card {
   padding: 1.5rem;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: box-shadow 0.3s ease;
+  border: 1px solid var(--border);
+  background: #fff;
 }
 
-.education-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-color);
-}
-
-.edu-degree {
-  color: var(--text-color);
-  font-size: 1.2rem;
+.principle-card h3 {
   margin-bottom: 0.5rem;
 }
 
-.edu-institution {
-  color: var(--primary-color);
-  font-weight: 500;
-  margin-bottom: 0.25rem;
+.workstyle h3 {
+  margin-bottom: 1rem;
 }
 
-.edu-location {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+.workstyle ul {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
 }
 
-.edu-date {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  padding: 0.25rem 0.75rem;
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary-color);
-  border-radius: 99px;
+.workstyle li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--muted);
+}
+
+.workstyle li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding: 2rem;
+  }
 }
