@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import './Hero.css';
 
 function Hero() {
-  const { name, role, resumeLink } = resumeData.personal;
+  const { name, resumeLink } = resumeData.personal;
   const { positioning, focus, summary } = resumeData.profile;
 
   return (
@@ -17,9 +17,8 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="hero-eyebrow">Senior software engineer</span>
+          <span className="hero-eyebrow">Lifelong learner. Curious by default.</span>
           <h1 className="hero-name">{name}</h1>
-          <p className="hero-role">{role}</p>
           <p className="hero-positioning">{positioning}</p>
           <p className="hero-summary">{summary}</p>
 
